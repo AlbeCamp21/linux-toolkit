@@ -210,6 +210,15 @@ Herramienta para auditoría y recuperación de contraseñas en entornos autoriza
 - Limitaciones: requiere una sesión Meterpreter activa y permisos adecuados; puede ser detectado por soluciones de seguridad.  
 - Ejemplos de uso dentro de una sesión Meterpreter: `meterpreter > load kiwi`, `meterpreter > kiwi_cmd` (invocar comandos/funciones disponibles de kiwi), `meterpreter > help` (ver comandos cargados tras `load kiwi`)
 
+### `knock`  
+Herramienta cliente para **port knocking**, técnica que permite abrir puertos protegidos en un servidor tras enviar una **secuencia específica de conexiones a puertos**.
+- Envía intentos de conexión (TCP/UDP) a una serie de puertos en un orden definido, sin establecer sesiones reales.
+- Se utiliza junto a servicios como `knockd` o `fwknop` que monitorean la secuencia y aplican reglas de firewall dinámicas.
+- Permite **ocultar servicios críticos** (como SSH) frente a escaneos (`nmap`, `masscan`) y reducir ataques de fuerza bruta.
+- Puede trabajar sobre TCP (por defecto) o UDP (`-u`) y ajustar el tiempo entre knocks (`-d`).
+- Muy común en **CTFs, DockerLabs y laboratorios** donde todos los puertos aparecen filtrados hasta realizar el knocking correcto.
+- Ejemplo: `knock <IP_objetivo> 7000 8000 9000`
+
 ### `mimikatz`  
 Herramienta (Windows .exe) para **extracción y manipulación de credenciales/local security authority** en sistemas Windows.  
 - Permite interactuar con componentes de seguridad de Windows: LSA, Kerberos, NTLM, tickets, certificados y hashes.  
