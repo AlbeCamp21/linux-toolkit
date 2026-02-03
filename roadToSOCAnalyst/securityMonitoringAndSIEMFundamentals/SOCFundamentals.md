@@ -48,7 +48,28 @@ The SOC follows a tiered structure to manage the volume and complexity of alerts
 
 ---
 
-## 5. Summary of Incident Response Steps
+## 5. The Alert Triaging Process
+
+### A. Definition
+**Alert Triaging** is the systematic process performed by a SOC analyst to evaluate and prioritize security alerts. The goal is to determine the threat level and potential impact on the organization's systems and data to effectively allocate response resources.
+
+### B. The Ideal Triaging Workflow
+1.  **Initial Review:** Thoroughly analyze metadata, timestamps, IPs, and the triggering rule/signature.
+2.  **Classification & Correlation:** Categorize the alert by severity and cross-reference it with other events or Threat Intelligence to identify patterns or IOCs.
+3.  **Enrichment:** Gather additional context through network packet captures, memory dumps, or sandbox analysis of suspicious files/URLs.
+4.  **Risk & Contextual Analysis:** Evaluate the criticality of the affected asset and check if security controls (Firewalls, EDR) failed or were evaded.
+5.  **IT Consultation:** Coordinate with IT Operations to identify maintenance activities or configuration changes that might cause **False Positives**.
+6.  **Response Execution:** Determine if the alert is a non-malicious event (close) or a true security concern (proceed to Incident Response).
+
+### C. Escalation and De-escalation
+* **Escalation:** The process of notifying higher-level teams (Tier 2/3), incident response teams, or management.
+* **Triggers:** Escalation is mandatory when critical systems are compromised, attacks are ongoing, or sophisticated techniques are detected.
+* **Communication:** The analyst must provide a comprehensive summary including severity, findings, and risk assessment.
+* **De-escalation:** Occurs when the risk is mitigated, the incident is contained, and further high-level coordination is no longer necessary.
+
+---
+
+## 6. Summary of Incident Response Steps
 1.  **Triage:** Initial categorization and prioritization of alerts.
 2.  **Containment:** Limiting the scope and impact of an active threat.
 3.  **Eradication:** Removing the threat from the environment.
