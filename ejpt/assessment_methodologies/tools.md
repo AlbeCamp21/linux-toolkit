@@ -351,6 +351,13 @@ Herramienta automatizada para **detección y explotación de vulnerabilidades de
 - Riesgos y ética: herramienta **muy intrusiva y ruidosa**; usar **solo** en laboratorios o entornos explícitamente autorizados.  
 - Ejemplos: `sqlmap -u "http://target.com/page.php?id=1" --dbs`, `sqlmap -u "http://target.com/login.php" --forms --batch -db`, `sqlmap -u "http://target.com/item.php?id=5" --tables -D database_name`, `sqlmap -r request.txt --dump`
 
+### `sslscan`  
+Herramienta de línea de comandos para **evaluar la seguridad de las conexiones SSL/TLS** de un servidor o servicio.  
+- Qué hace: se conecta a servicios cifrados (HTTPS, LDAPS, RDP, etc.) y prueba secuencialmente protocolos para identificar **suites de cifrado (Cipher Suites)** aceptadas, resaltando las débiles u obsoletas (como SSLv2/v3, TLS 1.0/1.1, RC4, DES).  
+- Uso típico en pruebas: auditorías de infraestructura, bastionado de servidores y verificación de cumplimiento para asegurar que no se expongan configuraciones criptográficas inseguras.  
+- Funcionalidades extra: extrae información detallada del **certificado digital** (emisor, fechas de caducidad, algoritmos) y puede detectar vulnerabilidades específicas de configuración (ej. Heartbleed).  
+- Opciones comunes: `--no-failed` para limpiar la salida ocultando los intentos de conexión rechazados, `--show-certificate` para extraer la data completa del certificado, `--tlsall` para probar únicamente versiones de TLS.  
+- Ejemplos: `sslscan target.com`, `sslscan 192.168.1.50:3389`, `sslscan --no-failed target.com:443`
 
 ### `steghide`
 Herramienta para **ocultar y extraer datos** dentro de archivos (steganografía).
